@@ -25,24 +25,27 @@ This project is part of the Computer Structure I course at Universidad del Norte
 - **Audio Output on Vowel Input**: Using the Nios II soft-processor, the system plays a specific vowel sound when the corresponding vowel key is pressed on a keyboard.
 - **FPGA-Based Implementation**: Use of an Altera DE2-115 board for the development and execution of the VHDL and Assembly code.
 
-## Installation and Usage
 
-1. **Clone the Repository**: 
-   ```bash
-   git clone https://github.com/your-username/vga-image-audio-visualization.git
-   ```
-2. **Set Up the Hardware**: Connect the Altera DE2-115 board as per the hardware setup instructions provided in the `hardware-setup.md`.
-3. **Load the VHDL and Assembly Code**: Use Quartus II to compile and load the VHDL and Assembly code onto the FPGA.
-4. **Run the Python Preprocessor for Image**: 
-   ```bash
-   python preprocess_image.py
-   ```
-   Ensure you have the correct image file in the specified directory.
-5. **View the Output and Listen to Audio**: Power on the FPGA with the connected VGA monitor and keyboard to see the output image displayed and hear the vowel sounds when keys are pressed.
+## VGA Implementation Details
 
-## Solution Overview
+In this project, we developed a system to display a preprocessed image on a VGA monitor using an Altera DE2-115 board, following a specific resolution of 640x350 pixels. The image, centrally positioned and sized at 128x128 pixels, represents a location in Barranquilla, distinct from the Uninorte campus.
 
-The chosen solution involves preprocessing an image using a Python script to fit specific criteria and then using VHDL to display this image centered on a VGA monitor. Additionally, the system plays audio files when vowel keys are pressed, implementing a Nios II processor programmed in Assembly language. The system adheres to various constraints, including resolution, positioning, and audio memory constraints.
+### Key Components:
+- **Python Preprocessing**: The image undergoes preprocessing using a Python script to adjust its size and convert the RGB values into an 8-bit binary format suitable for VHDL processing.
+- **VHDL Display Logic**: Implemented in VHDL, the system reads the binary color vectors and calculates the correct starting position on the screen to ensure the image is centered.
+- **Technical Compliance**: The system adheres to the VGA protocol standards, ensuring compatibility with a standard VGA monitor.
+
+### Challenges and Solutions:
+- **Image Positioning**: Ensuring the image is exactly centered involved precise calculations within the VHDL code to align the image properly on the VGA display.
+- **Memory and Format Constraints**: The image data, stored in three separate .txt files for each RGB component, had to be efficiently managed to fit the FPGA's memory constraints while maintaining high visual fidelity.
+
+This VGA implementation demonstrates the capability of FPGA-based systems to handle complex image processing tasks while adhering to strict technical specifications.
+
+
+## Audio Implementation Details
+
+The audio functionality of this project involves playing back vowel sounds on a Nios II soft-processor. Initially, audio files for each vowel were recorded and meticulously edited to fit within the memory constraints of the NIOS II, with each sound optimized to last only 1 second and stored as vectors of 4252 elements. The software logic detects vowel key presses, accesses the corresponding audio vector, and plays the sound until the end of the vector is reached. The system then resets the key register and waits for the next interaction. Exception handling is integrated to ensure the FPGA software operates correctly under these conditions.
+
 
 ## Team
 
