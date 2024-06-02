@@ -13,6 +13,7 @@
 [![GitHub JaymedDLC](https://img.shields.io/badge/by-FernandoMVG-green)](https://github.com/FernandoMVG)
 
 </div>
+
 ## Project Description
 
 This project is part of the Computer Structure I course at Universidad del Norte, guided by Professor Eduardo Zurek. The objectives include implementing a VGA protocol on an Altera DE2-115 board to display a preprocessed image, and programming a Nios II soft-processor to play Spanish vowel sounds when vowel keys are pressed.
