@@ -4,8 +4,6 @@
     VGA Image and Audio Visualization Project
   </h1>
 
-<img src="app/public/assets/images/EAGRAFTY.png" alt="Logo de EA Grafty" width="250"/>
-
 <h4>
     Computer Structure I
   </h4>
